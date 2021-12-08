@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AddRecordActivity"
+    android:orientation="vertical">
+
+    <Spinner
+        android:id="@+id/add_record_type"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="150px"
+        android:entries="@array/record_type" />
+
+    <EditText
+        android:id="@+id/add_record_company"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:maxLength="18"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="30px"
+        android:hint="供应商或客户" />
+
+    <Spinner
+        android:id="@+id/add_record_commodity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="30px" />
+
+
+    <EditText
+        android:id="@+id/add_record_price"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="numberDecimal"
+        android:maxLength="5"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="30px"
+        android:hint="货品单价" />
+
+    <EditText
+        android:id="@+id/add_record_quantity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="numberSigned"
+        android:maxLength="5"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="30px"
+        android:hint="货品数量" />
+
+    <Button
+        android:id="@+id/add_record_add"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="30px"
+        android:text="添加" />
+
+
+</LinearLayout>

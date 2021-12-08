@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
-        android:layout_marginTop="150px"
+        android:layout_marginTop="250px"
         android:entries="@array/commodity_type" />
 
 
@@ -20,6 +20,7 @@
         android:id="@+id/add_commodity_edit_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:maxLength="18"
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
         android:layout_marginTop="30px"

@@ -33,19 +33,19 @@ CREATE TABLE IF NOT EXISTS `commodity` (
 
 | 字段名称  | 字段类型 | 是否主键 | 是否为空 | 长度 |     描述     |
 | :-------: | :------: | :------: | :------: | :--: | :----------: |
-|    id     | varchar  |    是    |          |  20  |     编码     |
+|    id     |   int    |    是    |          |  11  |     编码     |
 |   type    | varchar  |          |          |  20  |  出入库类别  |
 |  company  | varchar  |          |          |  20  | 供应商或客户 |
 | commodity | varchar  |          |          |  20  |   货品名称   |
-|   price   |   int    |          |          |  11  |     单价     |
+|   price   |  double  |          |          |  11  |     单价     |
 | quantity  |   int    |          |          |  11  |     数量     |
 |   time    | varchar  |          |          |  20  |   操作日期   |
 
 ```mysql
 CREATE TABLE IF NOT EXISTS `record` (
-    `id` VARCHAR(20) NOT NULL,
+    `id` INT UNSIGNED AUTO_INCREMENT,
     `type` VARCHAR(20) NOT NULL,
-    `company` VARCHAR(20),
+    `company` VARCHAR(20) NOT NULL,
     `commodity` VARCHAR(20) NOT NULL,
     `price` INT NOT NULL,
     `quantity` INT NOT NULL,

@@ -5,7 +5,6 @@
     <string name="title_notifications">出入库流水账</string>
     <string name="title_activity_add_commodity">添加货品</string>
 
-
     <string-array name="commodity_type">
         <item>电脑数码</item>
         <item>家用电器</item>
@@ -15,4 +14,12 @@
         <item>食品生鲜</item>
         <item>家具装饰</item>
     </string-array>
+
+    <string-array name="record_type">
+        <item>采购入库</item>
+        <!--        <item>生产入库</item>-->
+        <item>销售出库</item>
+        <!--        <item>消耗出库</item>-->
+    </string-array>
+
 </resources>
