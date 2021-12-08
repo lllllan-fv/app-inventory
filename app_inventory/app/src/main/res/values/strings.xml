@@ -1,13 +1,18 @@
 <resources>
-    <string name="app_name">app_inventory</string>
-    <string name="title_home">Inventory</string>
-    <string name="title_dashboard">Action</string>
-    <string name="title_notifications">Records</string>
+    <string name="app_name">库存管理系统</string>
+    <string name="title_home">库存信息</string>
+    <string name="title_dashboard">操作</string>
+    <string name="title_notifications">出入库流水账</string>
+    <string name="title_activity_add_commodity">添加货品</string>
 
 
-    <string-array name="color_labels">
-        <item>红色</item>
-        <item>绿色</item>
-        <item>蓝色</item>
+    <string-array name="commodity_type">
+        <item>电脑数码</item>
+        <item>家用电器</item>
+        <item>运动户外</item>
+        <item>服饰鞋包</item>
+        <item>日用百货</item>
+        <item>食品生鲜</item>
+        <item>家具装饰</item>
     </string-array>
 </resources>

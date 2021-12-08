@@ -4,9 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.Spinner;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -30,14 +28,7 @@ public class HomeFragment extends Fragment {
                 Toast.makeText(getContext(), "wahaha", Toast.LENGTH_SHORT).show();
             }
         });
-
-        String[] colors = new String[]{"red", "blue"};
-
-        Spinner spinner = (Spinner) root.findViewById(R.id.home_spinner);
-        ArrayAdapter<CharSequence> items = new ArrayAdapter<CharSequence>(getContext(),
-                android.R.layout.simple_spinner_dropdown_item, colors);
-        spinner.setAdapter(items);
-
+ 
         return root;
     }
 

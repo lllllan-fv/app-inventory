@@ -2,10 +2,55 @@
 
 
 
-### [贝塞尔曲线-消息拖拽消失](https://blog.csdn.net/qq_38520096/article/details/79283493)
-
-![img](https://img-blog.csdn.net/20180207192510018?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMzg1MjAwOTY=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
-
-
-
 ### [Android下拉列表框](https://blog.csdn.net/pfe_nova/article/details/38362193)
+
+
+
+## 数据库表
+
+
+
+#### commodity
+
+| 字段名称 | 字段类型 | 是否主键 | 是否为空 | 长度 |   描述   |
+| :------: | :------: | :------: | :------: | :--: | :------: |
+|    id    |   int    |    是    |          |  11  |   编码   |
+|   type   | varchar  |          |          |  20  | 货品类别 |
+|   name   | varchar  |          |          |  20  | 货品名称 |
+
+```mysql
+CREATE TABLE IF NOT EXISTS `commodity` (
+	`id` INT UNSIGNED AUTO_INCREMENT,
+    `type` VARCHAR(20) NOT NULL,
+    `name` VARCHAR(20) NOT NULL,
+    PRIMARY KEY ( `id` )
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+```
+
+
+
+#### record
+
+| 字段名称  | 字段类型 | 是否主键 | 是否为空 | 长度 |     描述     |
+| :-------: | :------: | :------: | :------: | :--: | :----------: |
+|    id     | varchar  |    是    |          |  20  |     编码     |
+|   type    | varchar  |          |          |  20  |  出入库类别  |
+|  company  | varchar  |          |          |  20  | 供应商或客户 |
+| commodity | varchar  |          |          |  20  |   货品名称   |
+|   price   |   int    |          |          |  11  |     单价     |
+| quantity  |   int    |          |          |  11  |     数量     |
+|   time    | varchar  |          |          |  20  |   操作日期   |
+
+```mysql
+CREATE TABLE IF NOT EXISTS `record` (
+    `id` VARCHAR(20) NOT NULL,
+    `type` VARCHAR(20) NOT NULL,
+    `company` VARCHAR(20),
+    `commodity` VARCHAR(20) NOT NULL,
+    `price` INT NOT NULL,
+    `quantity` INT NOT NULL,
+    `time` VARCHAR(20) NOT NULL,
+    PRIMARY KEY ( `id` )
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+```
+
