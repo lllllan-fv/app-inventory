@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">app_inventory</string>
+    <string name="title_home">Inventory</string>
+    <string name="title_dashboard">Action</string>
+    <string name="title_notifications">Records</string>
+
+
+    <string-array name="color_labels">
+        <item>红色</item>
+        <item>绿色</item>
+        <item>蓝色</item>
+    </string-array>
+</resources>
