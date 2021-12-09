@@ -18,8 +18,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
 
-import cn.lllllan.android.app_inventory.db.CommodityDBHelper;
-import cn.lllllan.android.app_inventory.db.RecordDBHelper;
+import cn.lllllan.android.app_inventory.db.DBHelper;
 
 public class AddRecordActivity extends AppCompatActivity {
 
@@ -27,14 +26,11 @@ public class AddRecordActivity extends AppCompatActivity {
     String commodity;
     String type;
 
-    RecordDBHelper dbHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_record);
-
-        dbHelper = new RecordDBHelper(AddRecordActivity.this, "inventory.db", null, 1);
 
         // 初始化货品列表
         initCommodities();
@@ -63,31 +59,31 @@ public class AddRecordActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 String company = companyET.getText().toString();
-                String date = String.valueOf(datePicker.getYear()) + "-" + datePicker.getMonth() + "-" + datePicker.getDayOfMonth();
-                String priceString = priceET.getText().toString();
-                Double price = Double.parseDouble(priceString.equals("") ? "0" : priceString);
-                String quantityString = quantityET.getText().toString();
-                int quantity = Integer.parseInt(quantityString.equals("") ? "0" : quantityString);
+                String date = datePicker.getYear() + "-" + datePicker.getMonth() + "-" + datePicker.getDayOfMonth();
+                String price = priceET.getText().toString();
+                price = String.valueOf(Double.parseDouble(price.equals("") ? "0" : price));
+                String quantity = quantityET.getText().toString();
 
                 if (company.equals("")) {
                     Toast.makeText(AddRecordActivity.this, "请填写供应商或客户", Toast.LENGTH_SHORT).show();
-                } else if (priceString.equals("")) {
+                } else if (price.equals("")) {
                     Toast.makeText(AddRecordActivity.this, "请输入单价", Toast.LENGTH_SHORT).show();
-                } else if (quantityString.equals("")) {
+                } else if (quantity.equals("")) {
                     Toast.makeText(AddRecordActivity.this, "请输入数量", Toast.LENGTH_SHORT).show();
                 } else {
 
-                    SQLiteDatabase db = dbHelper.getWritableDatabase();
+                    DBHelper recordDBHelper = new DBHelper(AddRecordActivity.this, "inventory.db", null, 2);
+                    SQLiteDatabase sqLiteDatabase = recordDBHelper.getWritableDatabase();
                     ContentValues values = new ContentValues();
 
                     values.put("type", type);
                     values.put("company", company);
                     values.put("commodity", commodity);
-                    values.put("price", price);
+                    values.put("price", price.toString());
                     values.put("quantity", quantity);
-                    values.put("time", date);
+                    values.put("deal_date", date);
 
-                    db.insert("record", null, values);
+                    sqLiteDatabase.insert("record", null, values);
                     values.clear();
 
                 }
@@ -96,8 +92,8 @@ public class AddRecordActivity extends AppCompatActivity {
     }
 
     void initCommodities() {
-        CommodityDBHelper commodityDBHelper = new CommodityDBHelper(AddRecordActivity.this, "inventory.db", null, 1);
-        SQLiteDatabase db = commodityDBHelper.getReadableDatabase();
+        DBHelper DBHelper = new DBHelper(AddRecordActivity.this, "inventory.db", null, 2);
+        SQLiteDatabase db = DBHelper.getReadableDatabase();
         Cursor cursor = db.query("commodity", null, null, null, null, null, null);
 
         if (cursor.moveToFirst()) {
@@ -114,7 +110,6 @@ public class AddRecordActivity extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 commodity = commodities.get(i);
-                Toast.makeText(AddRecordActivity.this, commodity, Toast.LENGTH_SHORT).show();
             }
 
             @Override
