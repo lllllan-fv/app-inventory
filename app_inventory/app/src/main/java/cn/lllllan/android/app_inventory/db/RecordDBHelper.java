@@ -10,14 +10,14 @@ import androidx.annotation.Nullable;
 public class RecordDBHelper extends SQLiteOpenHelper {
 
     public static final String CREATE_CONTACT = "CREATE TABLE IF NOT EXISTS record (" +
-            "    id INT UNSIGNED AUTO_INCREMENT," +
-            "    type VARCHAR(20) NOT NULL," +
-            "    company VARCHAR(20) NOT NULL," +
-            "    commodity VARCHAR(20) NOT NULL," +
-            "    price DOUBLE NOT NULL," +
-            "    quantity INT NOT NULL," +
-            "    time VARCHAR(20) NOT NULL," +
-            "    PRIMARY KEY (id)" +
+            "id INT UNSIGNED AUTO_INCREMENT," +
+            "type VARCHAR(20) NOT NULL," +
+            "company VARCHAR(20) NOT NULL," +
+            "commodity VARCHAR(20) NOT NULL," +
+            "price DOUBLE NOT NULL," +
+            "quantity INT NOT NULL," +
+            "time VARCHAR(20) NOT NULL," +
+            "PRIMARY KEY (id)" +
             ")";
 
     private Context mContext;
