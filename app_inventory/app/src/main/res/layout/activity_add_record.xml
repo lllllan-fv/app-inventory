@@ -56,6 +56,16 @@
         android:layout_marginTop="30px"
         android:hint="货品数量" />
 
+    <DatePicker
+        android:id="@+id/add_record_date"
+        android:theme="@android:style/Theme.Holo"
+        android:calendarViewShown="false"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="30px" />
+
     <Button
         android:id="@+id/add_record_add"
         android:layout_width="match_parent"

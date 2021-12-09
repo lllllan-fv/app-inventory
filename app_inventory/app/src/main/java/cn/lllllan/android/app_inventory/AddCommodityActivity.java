@@ -1,5 +1,7 @@
 package cn.lllllan.android.app_inventory;
 
+import android.content.ContentValues;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -10,14 +12,18 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import cn.lllllan.android.app_inventory.db.CommodityDBHelper;
+
 public class AddCommodityActivity extends AppCompatActivity {
     String selectType = "";
+    CommodityDBHelper dbHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_commodity);
 
+        dbHelper = new CommodityDBHelper(AddCommodityActivity.this, "inventory.db", null, 1);
 
         Spinner spinner = (Spinner) findViewById(R.id.add_commodity_spinner);
         EditText editText = (EditText) findViewById(R.id.add_commodity_edit_text);
@@ -47,6 +53,14 @@ public class AddCommodityActivity extends AppCompatActivity {
                     Toast.makeText(AddCommodityActivity.this, "货品名称不能超过20个字符", Toast.LENGTH_SHORT).show();
                 } else {
                     // 插入数据库
+                    SQLiteDatabase db = dbHelper.getWritableDatabase();
+                    ContentValues values = new ContentValues();
+
+//                    values.put("id", (byte[]) null);
+                    values.put("type", selectType);
+                    values.put("name", name);
+                    db.insert("commodity", null, values);
+                    values.clear();
                 }
             }
         });
