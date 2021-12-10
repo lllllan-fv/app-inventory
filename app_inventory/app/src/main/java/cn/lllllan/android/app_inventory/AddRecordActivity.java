@@ -26,11 +26,14 @@ public class AddRecordActivity extends AppCompatActivity {
     String commodity;
     String type;
 
+    DBHelper dbHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_record);
+
+        dbHelper = new DBHelper(AddRecordActivity.this, "inventory.db", null, 2);
 
         // 初始化货品列表
         initCommodities();
@@ -72,8 +75,7 @@ public class AddRecordActivity extends AppCompatActivity {
                     Toast.makeText(AddRecordActivity.this, "请输入数量", Toast.LENGTH_SHORT).show();
                 } else {
 
-                    DBHelper recordDBHelper = new DBHelper(AddRecordActivity.this, "inventory.db", null, 2);
-                    SQLiteDatabase sqLiteDatabase = recordDBHelper.getWritableDatabase();
+                    SQLiteDatabase db = dbHelper.getWritableDatabase();
                     ContentValues values = new ContentValues();
 
                     values.put("type", type);
@@ -83,7 +85,7 @@ public class AddRecordActivity extends AppCompatActivity {
                     values.put("quantity", quantity);
                     values.put("deal_date", date);
 
-                    sqLiteDatabase.insert("record", null, values);
+                    db.insert("record", null, values);
                     values.clear();
 
                 }
@@ -92,8 +94,7 @@ public class AddRecordActivity extends AppCompatActivity {
     }
 
     void initCommodities() {
-        DBHelper DBHelper = new DBHelper(AddRecordActivity.this, "inventory.db", null, 2);
-        SQLiteDatabase db = DBHelper.getReadableDatabase();
+        SQLiteDatabase db = dbHelper.getReadableDatabase();
         Cursor cursor = db.query("commodity", null, null, null, null, null, null);
 
         if (cursor.moveToFirst()) {

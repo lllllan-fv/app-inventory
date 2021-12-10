@@ -12,7 +12,6 @@
         <item>服饰鞋包</item>
         <item>日用百货</item>
         <item>食品生鲜</item>
-        <item>家具装饰</item>
     </string-array>
 
     <string-array name="record_type">

@@ -6,11 +6,10 @@
     tools:context=".ui.home.HomeFragment"
     android:orientation="vertical">
 
-    <Button
-        android:id="@+id/home_btn"
+    <ListView
+        android:id="@+id/commodity_listview"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="wahaha" />
+        android:layout_height="match_parent" />
 
 
 </LinearLayout>
