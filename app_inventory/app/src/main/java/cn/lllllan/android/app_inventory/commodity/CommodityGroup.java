@@ -1,11 +1,11 @@
 package cn.lllllan.android.app_inventory.commodity;
 
-public class Commodity {
+public class CommodityGroup {
     private int imageId;
     private String name;
     private String number;
 
-    public Commodity(int imageId, String name, String number) {
+    public CommodityGroup(int imageId, String name, String number) {
         this.imageId = imageId;
         this.name = name;
         this.number = number;

@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.App_inventory">
         <activity
+            android:name=".CommodityShowActivity"
+            android:exported="true" />
+        <activity
             android:name=".AddRecordActivity"
             android:exported="true" />
         <activity

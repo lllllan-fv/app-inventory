@@ -15,12 +15,12 @@ import java.util.List;
 
 import cn.lllllan.android.app_inventory.R;
 
-public class CommodityAdapter extends ArrayAdapter<Commodity> {
+public class CommodityGroupAdapter extends ArrayAdapter<CommodityGroup> {
 
 
     private int resourceId;
 
-    public CommodityAdapter(Context context, int resource, List<Commodity> objects) {
+    public CommodityGroupAdapter(Context context, int resource, List<CommodityGroup> objects) {
         super(context, resource, objects);
         resourceId = resource;
     }
@@ -28,35 +28,35 @@ public class CommodityAdapter extends ArrayAdapter<Commodity> {
     @NonNull
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-        Commodity commodity = getItem(position);
+        CommodityGroup commodityGroup = getItem(position);
 
         View view;
-        CommodityHolder commodityHolder;
+        CommodityGroupHolder commodityGroupHolder;
 
         if (convertView == null) {
             view = LayoutInflater.from(getContext()).inflate(resourceId, parent, false);
-            commodityHolder = new CommodityHolder(view.findViewById(R.id.listview_item_commodity_group_image),
+            commodityGroupHolder = new CommodityGroupHolder(view.findViewById(R.id.listview_item_commodity_group_image),
                     view.findViewById(R.id.listview_item_commodity_group_name),
                     view.findViewById(R.id.listview_item_commodity_group_number));
-            view.setTag(commodityHolder);
+            view.setTag(commodityGroupHolder);
         } else {
             view = convertView;
-            commodityHolder = (CommodityHolder) view.getTag();
+            commodityGroupHolder = (CommodityGroupHolder) view.getTag();
         }
 
-        commodityHolder.imageView.setImageResource(commodity.getImageId());
-        commodityHolder.name.setText(commodity.getName());
-        commodityHolder.number.setText(commodity.getNumber());
+        commodityGroupHolder.imageView.setImageResource(commodityGroup.getImageId());
+        commodityGroupHolder.name.setText(commodityGroup.getName());
+        commodityGroupHolder.number.setText(commodityGroup.getNumber());
 
         return view;
     }
 
-    class CommodityHolder {
+    class CommodityGroupHolder {
         ImageView imageView;
         TextView name;
         TextView number;
 
-        public CommodityHolder(ImageView imageView, TextView name, TextView number) {
+        public CommodityGroupHolder(ImageView imageView, TextView name, TextView number) {
             this.imageView = imageView;
             this.name = name;
             this.number = number;
