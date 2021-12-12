@@ -78,10 +78,14 @@ public class AddRecordActivity extends AppCompatActivity {
                     SQLiteDatabase db = dbHelper.getWritableDatabase();
                     ContentValues values = new ContentValues();
 
+                    if (type.equals("销售出库")) {
+                        quantity = String.valueOf(Integer.parseInt(quantity) * -1);
+                    }
+
                     values.put("type", type);
                     values.put("company", company);
                     values.put("commodity", commodity);
-                    values.put("price", price.toString());
+                    values.put("price", price);
                     values.put("quantity", quantity);
                     values.put("deal_date", date);
 

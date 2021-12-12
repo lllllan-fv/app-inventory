@@ -21,7 +21,7 @@
 
     <TextView
         android:id="@+id/listview_item_commodity_quantity"
-        android:layout_width="50dp"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:textAlignment="center" />

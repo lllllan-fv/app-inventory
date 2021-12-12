@@ -21,8 +21,8 @@ public class DBHelper extends SQLiteOpenHelper {
             "type VARCHAR(20) NOT NULL," +
             "company VARCHAR(20) NOT NULL," +
             "commodity VARCHAR(20) NOT NULL," +
-            "price VARCHAR(20) NOT NULL," +
-            "quantity VARCHAR(20) NOT NULL," +
+            "price INT NOT NULL," +
+            "quantity INT NOT NULL," +
             "deal_date VARCHAR(20) NOT NULL," +
             "PRIMARY KEY (id)" +
             ")";

@@ -44,7 +44,7 @@ public class CommodityAdapter extends ArrayAdapter<Commodity> {
 
         commodityHolder.id.setText(String.valueOf(commodity.getId()));
         commodityHolder.name.setText(commodity.getName());
-        commodityHolder.quantity.setText(commodity.getQuantity());
+        commodityHolder.quantity.setText("库存：" + commodity.getQuantity());
 
         return view;
     }

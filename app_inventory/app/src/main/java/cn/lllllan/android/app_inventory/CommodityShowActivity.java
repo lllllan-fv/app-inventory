@@ -18,6 +18,7 @@ import cn.lllllan.android.app_inventory.db.DBHelper;
 
 public class CommodityShowActivity extends AppCompatActivity {
 
+    @SuppressLint("Range")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,8 +35,14 @@ public class CommodityShowActivity extends AppCompatActivity {
 
         int cnt = 0;
         if (cursor.moveToFirst()) {
-            @SuppressLint("Range") String name = cursor.getString(cursor.getColumnIndex("name"));
-            commodityList.add(new Commodity(++cnt, name, String.valueOf(0)));
+            String name = cursor.getString(cursor.getColumnIndex("name"));
+            Cursor record = db.query("record", new String[]{"sum(quantity)"}, "commodity=?", new String[]{name}, null, null, null);
+            String num = "0";
+            if (record.moveToFirst()) {
+                num = record.getString(record.getColumnIndex("sum(quantity)"));
+            }
+
+            commodityList.add(new Commodity(++cnt, name, num));
         } else {
             Toast.makeText(CommodityShowActivity.this, "无", Toast.LENGTH_SHORT).show();
         }
