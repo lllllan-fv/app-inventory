@@ -59,6 +59,7 @@ public class AddRecordActivity extends AppCompatActivity {
 
         Button button = (Button) findViewById(R.id.add_record_add);
         button.setOnClickListener(new View.OnClickListener() {
+            @SuppressLint("Range")
             @Override
             public void onClick(View view) {
                 String company = companyET.getText().toString();
@@ -78,20 +79,35 @@ public class AddRecordActivity extends AppCompatActivity {
                     SQLiteDatabase db = dbHelper.getWritableDatabase();
                     ContentValues values = new ContentValues();
 
+                    String num = "0";
                     if (type.equals("销售出库")) {
                         quantity = String.valueOf(Integer.parseInt(quantity) * -1);
+
+                        Cursor record = db.query("record", new String[]{"sum(quantity)"}, "commodity=?", new String[]{commodity}, null, null, null);
+                        if (record.moveToFirst()) {
+                            num = record.getString(record.getColumnIndex("sum(quantity)"));
+                        }
                     }
 
-                    values.put("type", type);
-                    values.put("company", company);
-                    values.put("commodity", commodity);
-                    values.put("price", price);
-                    values.put("quantity", quantity);
-                    values.put("deal_date", date);
+                    if (type.equals("销售出库") && Integer.parseInt(num) < Integer.parseInt(quantity)) {
+                        Toast.makeText(AddRecordActivity.this, "抱歉，库存不足 - " + num, Toast.LENGTH_SHORT).show();
+                    } else {
+                        values.put("type", type);
+                        values.put("company", company);
+                        values.put("commodity", commodity);
+                        values.put("price", price);
+                        values.put("quantity", quantity);
+                        values.put("deal_date", date);
 
-                    db.insert("record", null, values);
-                    values.clear();
+                        db.insert("record", null, values);
+                        values.clear();
 
+                        Toast.makeText(AddRecordActivity.this, "添加成功", Toast.LENGTH_SHORT).show();
+                        companyET.setText("");
+                        priceET.setText("");
+                        quantityET.setText("");
+
+                    }
                 }
             }
         });
