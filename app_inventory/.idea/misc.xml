@@ -23,9 +23,11 @@
         <entry key="..\:/information/2021-2022/app_inventory/app_inventory/app/src/main/res/layout/activity_main.xml" value="0.27807971014492755" />
         <entry key="..\:/information/2021-2022/app_inventory/app_inventory/app/src/main/res/layout/fragment_dashboard.xml" value="0.36614583333333334" />
         <entry key="..\:/information/2021-2022/app_inventory/app_inventory/app/src/main/res/layout/fragment_home.xml" value="0.36614583333333334" />
+        <entry key="..\:/information/2021-2022/app_inventory/app_inventory/app/src/main/res/layout/fragment_notifications.xml" value="0.36614583333333334" />
         <entry key="..\:/information/2021-2022/app_inventory/app_inventory/app/src/main/res/layout/fragment_second.xml" value="0.36614583333333334" />
         <entry key="..\:/information/2021-2022/app_inventory/app_inventory/app/src/main/res/layout/listview_item_commodity.xml" value="0.24270833333333333" />
         <entry key="..\:/information/2021-2022/app_inventory/app_inventory/app/src/main/res/layout/listview_item_commodity_group.xml" value="0.23072916666666668" />
+        <entry key="..\:/information/2021-2022/app_inventory/app_inventory/app/src/main/res/layout/listview_item_record.xml" value="0.36614583333333334" />
         <entry key="..\:/information/2021-2022/app_inventory/app_inventory/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.246875" />
       </map>
     </option>
