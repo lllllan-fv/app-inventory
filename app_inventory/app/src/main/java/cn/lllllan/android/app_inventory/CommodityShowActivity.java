@@ -41,6 +41,7 @@ public class CommodityShowActivity extends AppCompatActivity {
             if (record.moveToFirst()) {
                 num = record.getString(record.getColumnIndex("sum(quantity)"));
             }
+            if (num == null) num = "0";
 
             commodityList.add(new Commodity(++cnt, name, num));
         } else {

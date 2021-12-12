@@ -89,7 +89,8 @@ public class AddRecordActivity extends AppCompatActivity {
                         }
                     }
 
-                    if (type.equals("销售出库") && Integer.parseInt(num) < Integer.parseInt(quantity)) {
+                    if (num == null) num = "0";
+                    if (type.equals("销售出库") && (Integer.valueOf(num) < (Integer.valueOf(quantity) * -1))) {
                         Toast.makeText(AddRecordActivity.this, "抱歉，库存不足 - " + num, Toast.LENGTH_SHORT).show();
                     } else {
                         values.put("type", type);
