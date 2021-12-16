@@ -44,7 +44,7 @@ public class NotificationsFragment extends Fragment {
                 @SuppressLint("Range") String commodity = cursor.getString(cursor.getColumnIndex("commodity"));
                 @SuppressLint("Range") String price = cursor.getString(cursor.getColumnIndex("price"));
                 @SuppressLint("Range") String quantity = cursor.getString(cursor.getColumnIndex("quantity"));
-                String amount = String.valueOf(Integer.parseInt(price) * Integer.parseInt(quantity));
+                String amount = String.valueOf(-1 * Integer.parseInt(price) * Integer.parseInt(quantity));
 
 
                 Record record = new Record(type, company, date, commodity, price, quantity, amount);
