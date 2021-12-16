@@ -63,7 +63,7 @@ public class AddRecordActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 String company = companyET.getText().toString();
-                String date = datePicker.getYear() + "-" + datePicker.getMonth() + "-" + datePicker.getDayOfMonth();
+                String date = datePicker.getYear() + "-" + (datePicker.getMonth() + 1) + "-" + datePicker.getDayOfMonth();
                 String price = priceET.getText().toString();
                 price = String.valueOf(Double.parseDouble(price.equals("") ? "0" : price));
                 String quantity = quantityET.getText().toString();

@@ -35,15 +35,17 @@ public class CommodityShowActivity extends AppCompatActivity {
 
         int cnt = 0;
         if (cursor.moveToFirst()) {
-            String name = cursor.getString(cursor.getColumnIndex("name"));
-            Cursor record = db.query("record", new String[]{"sum(quantity)"}, "commodity=?", new String[]{name}, null, null, null);
-            String num = "0";
-            if (record.moveToFirst()) {
-                num = record.getString(record.getColumnIndex("sum(quantity)"));
-            }
-            if (num == null) num = "0";
+            do {
+                String name = cursor.getString(cursor.getColumnIndex("name"));
+                Cursor record = db.query("record", new String[]{"sum(quantity)"}, "commodity=?", new String[]{name}, null, null, null);
+                String num = "0";
+                if (record.moveToFirst()) {
+                    num = record.getString(record.getColumnIndex("sum(quantity)"));
+                }
+                if (num == null) num = "0";
 
-            commodityList.add(new Commodity(++cnt, name, num));
+                commodityList.add(new Commodity(++cnt, name, num));
+            } while (cursor.moveToNext());
         } else {
             Toast.makeText(CommodityShowActivity.this, "无", Toast.LENGTH_SHORT).show();
         }
